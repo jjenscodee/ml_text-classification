@@ -191,7 +191,7 @@ def train_bert(x_train, y_train, batch_size, lr, epochs, ids, x_test):
     # save tracking variables
     tracking = eval_total_accuracy
     tracking.append(total_time)
-    savetxt('tracking_xlnet.txt', tracking, fmt='%s')
+    savetxt('tracking_bert.txt', tracking, fmt='%s')
 
     print("Training complete!")
 
