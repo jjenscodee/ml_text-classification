@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import csv
 import numpy as np
+import datetime
 
 def read_test(path):
     """read test data"""
@@ -18,7 +19,6 @@ def read_train(path):
     """read train data"""
     with open(path) as fp:
         data_train = fp.readlines()
-        
     return data_train
 
 def create_csv_submission(ids, y_pred, name):
@@ -34,3 +34,19 @@ def create_csv_submission(ids, y_pred, name):
         writer.writeheader()
         for r1, r2 in zip(ids, y_pred):
             writer.writerow({'Id':int(r1),'Prediction':int(r2)})
+
+def calculate_time(elapsed):
+    """
+    Takes a time in seconds and returns format as hh:mm:ss
+    """
+
+    elapsed_rounded = int(round((elapsed)))
+    return str(datetime.timedelta(seconds=elapsed_rounded))
+
+def batch_accuracy(preds, labels):
+    """Function to calculate the accuracy of predictions vs labels"""
+
+    pred_flat = np.argmax(preds, axis=1).flatten()
+    labels_flat = labels.flatten()
+    
+    return np.sum(pred_flat == labels_flat) / len(labels_flat)

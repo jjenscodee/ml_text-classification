@@ -4,6 +4,10 @@ import re
 positive_emoji = ['^ __ ^', ':)', ': )', '^ ^', '^ _ ^', '^ ___ ^', ':p']
 negtive_emoji = ['- __ -', ': (', ':(', ":'(", '- _ -', '- ____ -', '. _ .']
 
+def remove_user(tweet):
+    tweet = re.sub("<user>", "", tweet)
+    return tweet
+
 def replace_hashtag(tweet):
     '''
     replace hashtag
@@ -34,6 +38,7 @@ def replace_heart(tweet):
     tweet = re.sub("< / 3", "<heartbreak>", tweet)
     tweet = re.sub("<//3", "<heartbreak>", tweet)
     tweet = re.sub("< / / 3", "<heartbreak>", tweet)
+    tweet = remove_user(tweet)
     return tweet
 
 def replace_time(tweet):
@@ -60,18 +65,12 @@ def preprocess(tweet):
 
     return tweet
 
-if __name__ == '__main__':
-
-    TRAIN_INPUT_PATH = '../twitter-datasets/train_pos.txt'
-    TRAIN_OUTPUT_PATH = 'output.txt'
-    
+def data_process(TRAIN_INPUT_PATH, TRAIN_OUTPUT_PATH, TEST_INPUT_PATH, TEST_OUTPUT_PATH):
+   
     with open(TRAIN_INPUT_PATH, "r") as fp, open(TRAIN_OUTPUT_PATH, "w") as fp2:
         tweets = fp.readlines()
         for tweet in tweets:
             fp2.write(preprocess(tweet))
-    
-    TEST_INPUT_PATH = '../twitter-datasets/test_data.txt'
-    TEST_OUTPUT_PATH = 'output2.txt'
 
     with open(TEST_INPUT_PATH, "r") as fp, open(TEST_OUTPUT_PATH, "w") as fp2:
         tweets = fp.readlines()
