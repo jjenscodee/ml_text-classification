@@ -53,6 +53,7 @@ def batch_accuracy(preds, labels):
     return np.sum(pred_flat == labels_flat) / len(labels_flat)
 
 def compute_word_embedding(model, data, dimension, vocabulary):
+    """Function to compute word embedding(bag of words)"""
     ret_word_embedding = np.zeros((len(data), dimension))
 
     for i, sentence in enumerate(data):

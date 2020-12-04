@@ -40,7 +40,7 @@ train_data = helpers.read_train(PATH_TRAIN_DATA)
 
 print("creating word embedding...")
 # we use continuous bag of words for word embedding
-dimension = 10
+dimension = 100
 model = fasttext.train_unsupervised(PATH_TRAIN_DATA, model = 'cbow', dim=dimension)
 vocabulary = model.words
 word_embeddings = np.array([model[word] for word in vocabulary])
@@ -48,15 +48,15 @@ word_embeddings = np.array([model[word] for word in vocabulary])
 # create our final training and testing data
 x_test = compute_word_embedding(model, querys, dimension, vocabulary)
 x_train = compute_word_embedding(model, train_data, dimension, vocabulary)
-y_train = [1] * 100000 + [0] * 100000 # change the number to 1250000 if you want to use full dataset
+y_train = [1] * 1250000 + [0] * 1250000 # change the number to 1250000 if you want to use full dataset
 
 # choose one simple ml classifier and train model
 # gaussian naive bayes
 classifier = GaussianNB()
 # random forest
-classifier = RandomForestClassifier(n_estimators=300)
+#classifier = RandomForestClassifier(n_estimators=300)
 # SVM
-classifier = make_pipeline(StandardScaler(), SVC(gamma='auto'))
+#classifier = make_pipeline(StandardScaler(), SVC(gamma='auto'))
 
 print('Start training...')
 classifier.fit(x_train, y_train)
