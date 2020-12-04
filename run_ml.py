@@ -1,5 +1,5 @@
 import numpy as np
-from helpers import *
+from helpers_ml import *
 from data_preprocess import *
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import RandomForestClassifier
@@ -9,8 +9,8 @@ from sklearn.preprocessing import StandardScaler
 
 print("Loading data...")
 # load data and combine train_pos + train_neg
-PATH_POS = 'twitter-datasets/train_pos.txt'
-PATH_NEG = 'twitter-datasets/train_neg.txt'
+PATH_POS = 'twitter-datasets/train_pos_full.txt'
+PATH_NEG = 'twitter-datasets/train_neg_full.txt'
 PATH_TEST = 'twitter-datasets/test_data.txt'
 PATH_COMBINE = 'twitter-datasets/train_combine.txt'
 
