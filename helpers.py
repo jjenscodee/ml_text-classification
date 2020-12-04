@@ -2,6 +2,7 @@
 import csv
 import numpy as np
 import datetime
+import fasttext
 
 def read_test(path):
     """read test data"""
@@ -50,3 +51,20 @@ def batch_accuracy(preds, labels):
     labels_flat = labels.flatten()
     
     return np.sum(pred_flat == labels_flat) / len(labels_flat)
+
+def compute_word_embedding(model, data, dimension, vocabulary):
+    ret_word_embedding = np.zeros((len(data), dimension))
+
+    for i, sentence in enumerate(data):
+        words = sentence.split(sep = ' ')
+        count = 0
+        avg_word_vector = np.zeros(dimension)
+        for word in words:
+            if word in vocabulary:
+                avg_word_vector = np.add(avg_word_vector,model[word])
+                count += 1
+        if count != 0:
+            avg_word_vector = avg_word_vector / count
+        ret_word_embedding[i] = avg_word_vector
+    
+    return ret_word_embedding
