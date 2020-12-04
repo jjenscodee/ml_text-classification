@@ -35,8 +35,8 @@ PATH_TEST_DATA = "twitter-datasets/test_preprocess"
 data_process(PATH_COMBINE, PATH_TRAIN_DATA, PATH_TEST, PATH_TEST_DATA)
 
 # get preprocessed data
-ids, querys = helpers.read_test(PATH_TEST_DATA)
-train_data = helpers.read_train(PATH_TRAIN_DATA)
+ids, querys = read_test(PATH_TEST_DATA)
+train_data = read_train(PATH_TRAIN_DATA)
 
 print("creating word embedding...")
 # we use continuous bag of words for word embedding
