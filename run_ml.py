@@ -52,11 +52,11 @@ y_train = [1] * 1250000 + [0] * 1250000 # change the number to 1250000 if you wa
 
 # choose one simple ml classifier and train model
 # gaussian naive bayes
-classifier = GaussianNB(verbose=True)
+classifier = GaussianNB()
 # random forest
-#classifier = RandomForestClassifier(n_estimators=300, verbose=True)
+#classifier = RandomForestClassifier(n_estimators=300)
 # SVM
-#classifier = make_pipeline(StandardScaler(), SVC(gamma='auto'), verbose=True)
+#classifier = make_pipeline(StandardScaler(), SVC(gamma='auto'))
 
 print('Start training...')
 classifier.fit(x_train, y_train)
