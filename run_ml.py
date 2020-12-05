@@ -66,5 +66,5 @@ print('train finish')
 y_pred = classifier.predict(x_test)
 y_pred = np.where(y_pred==0, -1, y_pred)
 OUTPUT_PATH = 'twitter-datasets/submission.csv'
-helpers.create_csv_submission(ids, y_pred, OUTPUT_PATH)
+create_csv_submission(ids, y_pred, OUTPUT_PATH)
 print('Done!')
