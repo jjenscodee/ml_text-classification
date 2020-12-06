@@ -7,8 +7,8 @@ from bert import *
 
 print("Loading data...")
 # load data and combine train_pos + train_neg
-PATH_POS = 'twitter-datasets/train_pos.txt'
-PATH_NEG = 'twitter-datasets/train_neg.txt'
+PATH_POS = 'twitter-datasets/train_pos_full.txt'
+PATH_NEG = 'twitter-datasets/train_neg_full.txt'
 PATH_TEST = 'twitter-datasets/test_data.txt'
 PATH_COMBINE = 'twitter-datasets/train_combine.txt'
 
@@ -40,14 +40,14 @@ x_train = np.array(train_data)
 x_test = np.array(test_data)
 
 # change the number to 1250000 if you want to use full dataset
-y_train = [1] * 100000 + [0] * 100000 
+y_train = [1] * 1250000 + [0] * 1250000 
 
 print("Start training...")
 # train XLnet and get the results
 #flat_predictions = train_xlnet(x_train=x_train, y_train=y_train, batch_size=32, lr=2e-5, epochs=3, ids=ids, x_test=x_test)
 
 # train Bert and get the results
-flat_predictions = train_bert(x_train=x_train, y_train=y_train, batch_size=32, lr=2e-5, epochs=4, ids=ids, x_test=x_test)
+flat_predictions = train_bert(x_train=x_train, y_train=y_train, batch_size=32, lr=2e-5, epochs=2, ids=ids, x_test=x_test)
 
 
 #change 0 to -1
