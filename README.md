@@ -40,7 +40,7 @@ classifier = GaussianNB()
 6. ```xlnet.py``` : Function to train XLNet base-cased model and get the prediction
 7. ```ml_cross_validation.jupyter``` : Do cross validation on traditional ML methods
 
-##### Execute directly
+#### Execute directly
 
 To execute the program and reproduce our results, you can directly run
 ```bash
