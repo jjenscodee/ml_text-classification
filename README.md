@@ -16,11 +16,11 @@ The whole experiment is run under python 3.7.3 with
 
 1. ```run_dl.py``` : Run deep learning models and get kaggle submission. To switch models, you can edit this file as follow:
 ```python
-    # train XLnet and get the results
-    #flat_predictions = train_xlnet(x_train=x_train, y_train=y_train, batch_size=32, lr=2e-5, epochs=3, ids=ids, x_test=x_test)
+# train XLnet and get the results
+#flat_predictions = train_xlnet(x_train=x_train, y_train=y_train, batch_size=32, lr=2e-5, epochs=3, ids=ids, x_test=x_test)
 
-    # train Bert and get the results
-    flat_predictions = train_bert(x_train=x_train, y_train=y_train, batch_size=32, lr=2e-5, epochs=4, ids=ids, x_test=x_test)
+# train Bert and get the results
+flat_predictions = train_bert(x_train=x_train, y_train=y_train, batch_size=32, lr=2e-5, epochs=4, ids=ids, x_test=x_test)
 
 ```
 2. ```run_ml.py``` : Run simple machine learning methods and get kaggle submission. To switch methods, you can edit this file as follow:
