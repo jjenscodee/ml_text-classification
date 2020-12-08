@@ -46,7 +46,7 @@ def replace_heart(tweet):
     tweet = re.sub("< / 3", "<heartbreak>", tweet)
     tweet = re.sub("<//3", "<heartbreak>", tweet)
     tweet = re.sub("< / / 3", "<heartbreak>", tweet)
-    tweet = remove_user(tweet)
+    
     return tweet
 
 def replace_time(tweet):
@@ -61,7 +61,7 @@ def test():
     '''
     test_tweet = 'hi, i #wasn\'t dog <3 ^ ^ - __ - 11:00'
 
-    print(preprocess(tweet))
+    print(preprocess(test_tweet))
 
 def preprocess(tweet):
 
@@ -70,6 +70,7 @@ def preprocess(tweet):
     tweet = replace_heart(tweet)
     tweet = replace_time(tweet)
     tweet = resolve_contraction(tweet)
+    tweet = remove_user(tweet)
 
     return tweet
 
@@ -84,3 +85,6 @@ def data_process(TRAIN_INPUT_PATH, TRAIN_OUTPUT_PATH, TEST_INPUT_PATH, TEST_OUTP
         tweets = fp.readlines()
         for tweet in tweets:
             fp2.write(tweet.split(',', 1)[0] + ',' + preprocess(tweet.split(',', 1)[1]))
+
+
+test()
