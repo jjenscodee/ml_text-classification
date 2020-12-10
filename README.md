@@ -10,7 +10,7 @@ The whole experiment is run under python 3.7.3 with
 - fasttext (```$ pip install fasttext```)
 - transformers (```$ pip install transformers```)
 - tqdm (```$ pip install tqdm```)
-- (optional) GPU support for pytorch (we use GTX 1080 GPUs for our DL model training)
+- (optional) GPU support for pytorch (we use GeForce GTX 1080 GPUs for our DL model training)
 
 #### File Description
 
