@@ -14,7 +14,7 @@ The whole experiment is run under python 3.7.3 with
 
 #### File Description
 
-1. ```run_dl.py``` : Run deep learning models and get kaggle submission. To switch models, you can edit this file as follow:
+1. ```run.py``` : Run deep learning models and get kaggle submission. To switch models, you can edit this file as follow:
 ```python
 # train XLnet and get the results
 #flat_predictions = train_xlnet(x_train=x_train, y_train=y_train, batch_size=32, lr=2e-5, epochs=3, ids=ids, x_test=x_test)
@@ -44,7 +44,7 @@ classifier = GaussianNB()
 
 To execute the program and reproduce our results, you can directly run
 ```bash
-python3 run_dl.py
+python3 run.py
 ```
 in bash. The program will train BERT model as default and output the __submission.csv__ file in the output path. This file is our best prediction which can get 0.908 precision score on AICrowd. Note that if you want to use different training data, testing data, or output path, be sure to modify the variables in run_dl.py.
 
